@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+
+import math
+import numpy as np
+from pypytorch.nn.modules.module import Module
+import pypytorch as t
+from pypytorch.nn import functional as F
+
+
+class Linear(Module):
+    """
+    Notes
+    -----
+    In subclass of Module, don't define self._name b/c it's used in a special way
+    """
+    def __init__(self, in_features, out_features, bias=True):
+        """
+        Notes
+        -----
+        self.weight and self.bias store parameters to train
+        """
+        super(Linear, self).__init__()
+        self.in_features = in_features
+        self.out_features = out_features
+        self.weight = t.Tensor((in_features, out_features), requires_grad=True)
+        if bias:
+            self.bias = t.Tensor((1, out_features), requires_grad=True)
+        self.reset_parameters()
+    
+    def reset_parameters(self):
+        stdv = 1. / math.sqrt(self.weight.shape[0])
+        self.weight.data = np.random.uniform(-stdv, stdv, self.weight.data.shape)
+        if self.bias.requires_grad:
+            self.bias.data = np.random.uniform(-stdv, stdv, self.bias.data.shape)
+
+    def forward(self, x):
+        return F.linear(x, self.weight, self.bias)
+
+    def __str__(self):
+        return 'Linear(in_features=%s, out_features=%s)' % (self.in_features, self.out_features)
+
+    def __repr__(self):
+        return str(self)

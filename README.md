@@ -24,7 +24,7 @@
 | nn        | A high level neural network library in PyPyTorch which built on functions module, you can build a neural network model very fast with the help of nn |
 | optim     | There are some optimizers, including SGD, Adam(will add in the coming future) and so on |
 
-
+![pypytorch-run-mnist](./assets/gifs/pypytorch-run-mnist.gif)
 
 
 ## Installation

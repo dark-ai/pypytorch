@@ -10,7 +10,7 @@ class Config(object):
     model_path = None
     print_seq = 20
     lr = 0.1
-    batch_size = 32
+    batch_size = 4
     epochs = 100
     lr_decay = 0.95
 

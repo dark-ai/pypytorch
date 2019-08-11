@@ -10,8 +10,8 @@ class Config(object):
     model_path = None
     print_seq = 20
     lr = 0.1
-    batch_size = 4
-    epochs = 100
+    batch_size = 32
+    epochs = 10
     lr_decay = 0.95
 
     def parse_args(self, **kwargs):
@@ -20,3 +20,4 @@ class Config(object):
                 setattr(self, key, value)
             else:
                 warnings.warn("Invalid option `%s`" % key)
+

@@ -37,7 +37,7 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 
 ### From Source
 
-1. `git clone https://github.com/dark-ai/pypytorch.git`
+1. `git clone https://github.com/dark-ai/pypytorch.git pypython`
 2. `cd pypytorch`
 3. `pip install -r requirements.txt`
 4. `make install && make clean`

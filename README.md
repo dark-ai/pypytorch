@@ -6,13 +6,15 @@
 
 # Contents
 
-* [About PyPyTorch](#about-pypytorch)
+* [Intruction](#intrudction)
 * [Installation](#installation)
   * [PyPI](#pypi)
   * [From Source](#from-source)
 
 
-## About PyPyTorch
+## Intruction
+
+PyPyTorch is very similar to PyTorch, most of APIs are the same as PyTorch, at this stage, this framework enables us to understand how dynamic neural network works.
 
 
 ## Installation

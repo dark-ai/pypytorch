@@ -10,6 +10,7 @@
 * [Installation](#installation)
   * [PyPI](#pypi)
   * [From Source](#from-source)
+* [TODO](#todo)
 
 
 ## Introduction
@@ -39,4 +40,12 @@
 2. `cd pypytorch`
 3. `pip install -r requirements.txt`
 4. `make install && make clean`
+
+
+
+## TODO
+
+[x] docs
+
+[x] Adam Optimizer
 

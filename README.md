@@ -45,7 +45,7 @@
 
 ## TODO
 
-+ [] docs
++ [ ] docs
 
-+ [] Adam Optimizer
++ [ ] Adam Optimizer
 

@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
-[TOC]
+* [About PyPyTorch](#About PyPyTorch)
 
 
 

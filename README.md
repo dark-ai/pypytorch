@@ -14,13 +14,8 @@
 
 ## About PyPyTorch
 
----
-
-
 
 ## Installation
-
----
 
 ### PyPI
 

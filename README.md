@@ -10,6 +10,9 @@
 
 * [About PyPyTorch](#about-pypytorch)
 * [Installation](#installation)
+  * [PyPI](#pypi)
+  * [From Source](#from-source)
+  * [From Binary](#from-binary)
 
 
 
@@ -27,14 +30,14 @@
 
 1. `pip3 install pypytorch`
 
-#### From source
+#### From Source
 
 1. `git clone https://github.com/dark-ai/pypytorch.git`
 2. `cd pypytorch`
 3. `pip install -r requirements.txt`
 4. `make install && make clean`
 
-#### From binary
+#### From Binary
 
 1. `wget `
 

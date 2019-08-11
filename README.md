@@ -9,41 +9,13 @@
 ## Table of Contents
 
 * [About PyPyTorch](#about-pypytorch)
-* [Installation](#Installation)
+* [Installation](#installation)
 
 
 
 ### About PyPyTorch
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

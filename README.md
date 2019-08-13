@@ -27,7 +27,7 @@
 
 ![pypytorch-run-mnist](./assets/gifs/pypytorch-run-mnist.gif)
 
-Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1bfUBrjVqkHuunh4IsYW9EQ), then unzip it to example/data/, if example/data/ doesn't exist, you need create directory at example/data/ by yourself. Besides, you can change configuration at example/scripts/mnist/config.py
+Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1bfUBrjVqkHuunh4IsYW9EQ), then unzip it to examples/data/, if examples/data/ doesn't exist, you need create directory example/data/ by yourself. The full path of mnist dataset is `examples/data/mnist/` Besides, you can change configuration at examples/scripts/mnist/config.py
 
 ## Installation
 

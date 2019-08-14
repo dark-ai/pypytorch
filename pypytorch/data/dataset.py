@@ -16,7 +16,7 @@ class Dataset(object):
         raise NotImplementedError
     
 
-class Dataloader(object):
+class DataLoader(object):
 
 
     def __init__(self, dataset, batch_size):

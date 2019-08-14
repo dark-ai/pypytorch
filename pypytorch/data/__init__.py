@@ -2,4 +2,4 @@
 
 
 from .dataset import Dataset
-from .dataset import Dataloader
+from .dataset import DataLoader

@@ -22,7 +22,7 @@ def train(**kwargs):
     mnist = Mnist(opts.data_dir)
     optimizer = t.optim.SGD(model.parameters(), lr=opts.lr)
     criterion = t.nn.CrossEntropyLoss()
-    dataloader = t.data.Dataloader(mnist, batch_size=opts.batch_size)
+    dataloader = t.data.DataLoader(mnist, batch_size=opts.batch_size)
 
     for epoch in range(opts.epochs):
         avg_loss = 0.0

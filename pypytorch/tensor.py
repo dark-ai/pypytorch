@@ -233,3 +233,6 @@ class Tensor(object):
         return 'Tensor(%s%s)'\
             % (self.data,
             ', grad_fn=<' + self.grad_fn.name + '>' if self.grad_fn else '')
+    
+    def __hash__(self):
+        return id(self)

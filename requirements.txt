@@ -3,3 +3,4 @@ dill
 wheel
 fire
 pillow
+numba

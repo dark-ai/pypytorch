@@ -1,5 +1,6 @@
-from .module import Module
+from .module import (Module, Sequential)
 from .linear import Linear
 from .conv import Conv2d
 from .pooling import MaxPool2d, AvgPool2d
-from .loss import *
+from .loss import (MSELoss, NLLLoss, CrossEntropyLoss)
+from .activation import ReLU

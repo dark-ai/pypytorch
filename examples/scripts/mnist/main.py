@@ -14,9 +14,9 @@ from mnist.dataset import Mnist
 
 
 opts = Config()
-model = getattr(models, 'LeNet')(1, 10)
+model = getattr(models, 'LeNetV1')(1, 10)
 
-
+print(model)
 def train(**kwargs):
     opts.parse_args(**kwargs)
     mnist = Mnist(opts.data_dir)

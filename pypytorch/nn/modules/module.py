@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from collections import Iterable
-from collections import Iterator
 from collections import OrderedDict
 
 
@@ -102,3 +100,18 @@ class Module(object):
     def __repr__(self):
         return str(self)
 
+
+class Sequential(Module):
+
+
+    def __init__(self, *modules):
+        super(Sequential, self).__init__()
+        assert len(modules) != 0, "At least need one module"
+        for i, mod in enumerate(modules):
+            setattr(self, str(i), mod)
+    
+    def forward(self, x):
+        out = x
+        for mod in self.modules:
+            out = mod(out)
+        return out

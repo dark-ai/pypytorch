@@ -22,7 +22,7 @@ class Tensor(object):
         # TorchNode will run backward
         self._node = TorchNode(tensor=self, requires_grad=requires_grad)
         if isinstance(data, tuple):
-            self._data = np.random.normal(loc=mu, scale=sigma, size=data)
+            self._data = np.random.normal(loc=mu, scale=sigma, size=data).astype(dtype.type)
         else:
             self._data = np.array(data, dtype=dtype.type)
         self._dtype = dtype
@@ -166,7 +166,7 @@ class Tensor(object):
         return Eq()(self, utils.ensure_tensor(other))
 
     def __ne__(self, other):
-        return Ne()(self, utils.ensure_tensor(other))
+        return Neg()(self, utils.ensure_tensor(other))
     
     def __lt__(self, other):
         return Lt()(self, utils.ensure_tensor(other))
@@ -237,3 +237,4 @@ class Tensor(object):
     
     def __hash__(self):
         return id(self)
+

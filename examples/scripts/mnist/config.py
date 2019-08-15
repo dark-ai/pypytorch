@@ -6,8 +6,8 @@ import warnings
 class Config(object):
 
     data_dir = '../../data/mnist/'
-    model = 'LeNet'
-    model_path = None
+    model = 'LeNetV2'
+    model_path = './checkpoints/LeNetV2/2019-08-15_21-27-23_1.pth'
     print_seq = 20
     lr = 0.1
     batch_size = 32

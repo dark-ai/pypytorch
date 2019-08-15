@@ -22,6 +22,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import dill
 
+
 def ignore_ellipsis(flag):
     if flag:
         np.set_printoptions(threshold=np.inf)
@@ -29,9 +30,9 @@ def ignore_ellipsis(flag):
         np.set_printoptions(threshold=1000)
 
 
-def save(fname, model):
+def save(model, fname):
     with open(fname, 'wb') as f:
-        dill.dump(model, f, 1)
+        dill.dump(model, f)
 
 def load(fname):
     with open(fname, 'rb') as f:
@@ -48,7 +49,5 @@ def ones_like(tensor):
 
 def zeros_like(tensor):
     return Tensor(np.zeros_like(tensor.data), dtype=int64)
-
-
 
 __version__ = 'v0.0.1'

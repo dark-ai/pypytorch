@@ -30,7 +30,7 @@ class Module(object):
         assert hasattr(self, '_modules'), 'should call super(Class, self).__init__() in __init__'
         # self._modules = self._modules if self._modules else tuple(extract_modules(self))
         self._named_modules = self._named_modules if self._named_modules else extract_modules(self)
-        self._modules = self._named_modules.values()
+        self._modules = list(self._named_modules.values())
         return self._modules
     
     def named_modules(self):

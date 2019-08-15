@@ -20,8 +20,8 @@ print(model)
 def train(**kwargs):
     opts.parse_args(**kwargs)
     mnist = Mnist(opts.data_dir)
-    optimizer = t.optim.SGD(model.parameters(), lr=opts.lr)
-    # optimizer = t.optim.Adam(model.parameters())
+    # optimizer = t.optim.SGD(model.parameters(), lr=opts.lr)
+    optimizer = t.optim.Adam(model.parameters())
     criterion = t.nn.CrossEntropyLoss()
     dataloader = t.data.DataLoader(mnist, batch_size=opts.batch_size)
 
@@ -38,9 +38,9 @@ def train(**kwargs):
                 print('Iteration: %s, loss: %s' % (i + 1, loss.data))
         avg_loss = avg_loss / i
         print('----Epoch: %s, avg_loss: %s----' % (epoch + 1, avg_loss))
-        t.utils.adjust_lr(optimizer, epoch + 1, opts.lr_decay, opts.lr)
+        # t.utils.adjust_lr(optimizer, epoch + 1, opts.lr_decay, opts.lr)
         model.save(epoch + 1, loss)
-        print('----Save weights: %s----')
+        print('====Save weights====')
 
 
 def main():

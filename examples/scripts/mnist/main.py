@@ -38,7 +38,7 @@ def train(**kwargs):
                 print('iteration: %s, loss: %s' % (i + 1, loss.data))
         avg_loss = avg_loss / i
         print('====epoch: %s, avg_loss: %s====' % (epoch + 1, avg_loss))
-        # t.utils.adjust_lr(optimizer, epoch + 1, opts.lr_decay, opts.learning_rate)
+        # t.utils.adjust_lr(optimizer, epoch + 1, opts.lr_decay, opts.lr)
         model.save()        
 
 

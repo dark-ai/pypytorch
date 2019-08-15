@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import os
+import time
 from collections import OrderedDict
+import json
+import pypytorch as t
 
 
 def extract_modules(o):
@@ -68,21 +72,51 @@ class Module(object):
         if self._parameters:
             return self._parameters
 
-        if hasattr(self, 'weight') and self.weight is not None:
-            self._parameters.append(self.weight)
+        if hasattr(self, 'weight') and getattr(self, 'weight') is not None:
+            self._parameters.append(getattr(self, 'weight'))
 
-        if hasattr(self, 'bias') and self.bias is not None:
-            self._parameters.append(self.bias)
+        if hasattr(self, 'bias') and getattr(self, 'bias') is not None:
+            self._parameters.append(getattr(self, 'bias'))
         
         for module in self._modules:
             self._parameters.extend(module.parameters())
         return self._parameters
 
-    
     def zero_grad(self):
         for param in self.parameters():
             param.zero_grad()
 
+    def save(self, epoch, loss, max_item=5, root='checkpoints/'):
+        assert max_item > 0, 'max_item must be gt 0'
+        model_dir = os.path.join(root, self.name)
+        current_time = time.strftime('%Y-%m-%d_%H-%M-%S')
+        if not os.path.exists(model_dir):
+            os.makedirs(model_dir)
+        weight_path = os.path.join(model_dir, current_time + '_' + str(epoch) + '.pth')
+        checkpoints_path = os.path.join(model_dir, 'checkpoints.json')
+        if not os.path.exists(checkpoints_path):
+            with open(checkpoints_path, 'w') as f:
+                f.write('{}')
+        with open(checkpoints_path, 'r') as fr:
+            data = json.load(fr)
+        if len(data) == max_item:
+            data = sorted(data.items(), key=lambda x: x[1])
+            name = data.pop()[0]
+            full_name = os.path.join(model_dir, name)
+            os.remove(full_name)
+            data = dict(data)
+            with open(checkpoints_path, 'w') as fw:
+                json.dump(data, fw, indent=4)
+            
+        with open(checkpoints_path, 'r') as f:
+            data = json.load(f)
+        data = dict(sorted(data.items(), key=lambda x: x[1]))
+        t.save(self, weight_path)
+        print(loss.data.tolist())
+        data[current_time + '_' + str(epoch) + '.pth'] = loss.data.tolist()
+        with open(checkpoints_path, 'w') as f:
+            json.dump(data, f, indent=4)
+    
     def _description(self, num_space=0):
         self.modules
         indentation = ' ' * 2

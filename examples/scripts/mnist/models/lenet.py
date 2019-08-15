@@ -2,10 +2,8 @@
 
 import pypytorch as t
 
-from models import BaseModule
 
-
-class LeNetV1(BaseModule):
+class LeNetV1(t.nn.Module):
 
 
     def __init__(self, in_ch, out_ch):
@@ -24,7 +22,7 @@ class LeNetV1(BaseModule):
         return out
 
 
-class LeNetV2(BaseModule):
+class LeNetV2(t.nn.Module):
 
 
     def __init__(self, in_ch, out_ch):
@@ -48,7 +46,7 @@ class LeNetV2(BaseModule):
         out = t.F.relu(self.fc1(out))
         return out
 
-class LeNetV3(BaseModule):
+class LeNetV3(t.nn.Module):
 
 
     def __init__(self, in_ch, out_ch):

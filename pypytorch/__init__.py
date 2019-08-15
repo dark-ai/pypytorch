@@ -22,6 +22,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import dill
 
+def ignore_ellipsis(flag):
+    if flag:
+        np.set_printoptions(threshold=np.inf)
+    else:
+        np.set_printoptions(threshold=1000)
+
 
 def save(fname, model):
     with open(fname, 'wb') as f:
@@ -30,5 +36,19 @@ def save(fname, model):
 def load(fname):
     with open(fname, 'rb') as f:
         return dill.load(f)
+
+def ones(shape):
+    return Tensor(np.ones(shape), dtype=int64)
+
+def zeros(shape):
+    return Tensor(np.zeros(shape), dtype=int64)
+
+def ones_like(tensor):
+    return Tensor(np.ones_like(tensor.data), dtype=int64)
+
+def zeros_like(tensor):
+    return Tensor(np.zeros_like(tensor.data), dtype=int64)
+
+
 
 __version__ = 'v0.0.1'

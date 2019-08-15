@@ -230,8 +230,9 @@ class Tensor(object):
         return str(self)
 
     def __str__(self):
+        data_str = repr(self.data).replace('array(', '').replace(')', '')
         return 'Tensor(%s%s)'\
-            % (self.data,
+            % (data_str,
             ', grad_fn=<' + self.grad_fn.name + '>' if self.grad_fn else '')
     
     def __hash__(self):

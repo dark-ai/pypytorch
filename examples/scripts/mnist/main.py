@@ -35,19 +35,15 @@ def train(**kwargs):
             optimizer.step()
             avg_loss += loss
             if (i + 1) % opts.print_seq == 0:
-                print('iteration: %s, loss: %s' % (i + 1, loss.data))
-            model.save()
-            return
+                print('Iteration: %s, loss: %s' % (i + 1, loss.data))
         avg_loss = avg_loss / i
-        print('====epoch: %s, avg_loss: %s====' % (epoch + 1, avg_loss))
-        model.save()
-        return
+        print('----Epoch: %s, avg_loss: %s----' % (epoch + 1, avg_loss))
         t.utils.adjust_lr(optimizer, epoch + 1, opts.lr_decay, opts.lr)
+        model.save()
 
 
 def main():
     fire.Fire()
-
 
 if __name__ == "__main__":
     main()

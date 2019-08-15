@@ -5,7 +5,7 @@ VERSION = 0.0.1
 install: setup.py
 	$(PYTHON) setup.py bdist_wheel &&\
 		cd dist &&\
-		pip uninstall $(TARGET) &&\
+		pip uninstall $(TARGET) -y &&\
 		pip install $(TARGET)-$(VERSION)-py3-none-any.whl
 
 clean: build dist

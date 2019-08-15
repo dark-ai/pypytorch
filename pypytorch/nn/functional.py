@@ -31,6 +31,10 @@ def sigmoid(inputs):
     sigmoid = Sigmoid()
     return sigmoid(inputs)
 
+def tanh(inputs):
+    tanh = Tanh()
+    return tanh(inputs)
+
 def mse_loss(predicted, labels):
     mse_loss = MSELoss()
     return mse_loss(predicted, labels)

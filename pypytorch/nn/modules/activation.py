@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
-# -*- coding: utf-8 -*-
-
 import math
 import numpy as np
 from pypytorch.nn.modules.module import Module
@@ -30,5 +27,37 @@ class ReLU(Module):
     def __str__(self):
         return 'ReLU()'
 
+    def __repr__(self):
+        return str(self)
+
+
+class Sigmoid(Module):
+
+
+    def __init__(self):
+        super(Sigmoid, self).__init__()
+    
+    def forward(self, x):
+        return F.sigmoid(x)
+    
+    def __str__(self):
+        return 'Sigmoid()'
+    
+    def __repr__(self):
+        return str(self)
+
+
+class Tanh(Module):
+
+
+    def __init__(self):
+        super(Tanh, self).__init__()
+    
+    def forward(self, x):
+        return F.tanh(x)
+
+    def __str__(self):
+        return 'Tanh()'
+    
     def __repr__(self):
         return str(self)

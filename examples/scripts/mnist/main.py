@@ -15,12 +15,10 @@ from mnist.dataset import Mnist
 
 opts = Config()
 model = getattr(models, opts.model)(1, 10)
-# print(model)
+print(model)
 
 def train(**kwargs):
     opts.parse_args(**kwargs)
-    model = t.load(opts.model_path)
-    print(model)
     mnist = Mnist(opts.data_dir)
     # optimizer = t.optim.SGD(model.parameters(), lr=opts.lr)
     optimizer = t.optim.Adam(model.parameters())

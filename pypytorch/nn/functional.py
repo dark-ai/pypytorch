@@ -8,6 +8,10 @@ def linear(inputs, weight, bias):
     linear = Linear()
     return linear(inputs, weight, bias)
 
+def dropout(inputs, prob=0.5, train=True):
+    dropout = DropOut(prob=prob, train=train)
+    return dropout(inputs)
+
 def conv2d(inputs, weight, bias, stride=(1, 1), padding=(0, 0)):
     stride, padding = utils.pair_tuple(stride, padding)
     conv = Conv2d(stride, padding)

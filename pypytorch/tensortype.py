@@ -13,7 +13,9 @@ class TensorType(object):
         return str(self)
 
     def __str__(self):
-        return str(self.__class__).split("'")[1] + '.' + str(self.type).split("'")[0].split('.')[-1]
+        class_full_name = str(self.__class__).split("'")[1]
+        moudle_name, class_short_name = '.'.join(class_full_name.split('.')[0:-1]), class_full_name.split('.')[-1]
+        return moudle_name + '.' + str(self.type).split("'")[1].split('.')[-1]
 
     def __eq__(self, other):
         return self.type == other.type

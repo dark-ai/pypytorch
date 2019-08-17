@@ -53,18 +53,6 @@ class Module(object):
     def prepare_modules(self):
         self.modules
 
-    # def eval(self):
-    #     self.training = False
-    #     self.modules
-    #     for param in self.parameters():
-    #         param.requires_grad = False
-    
-    # def train(self):
-    #     self.training = True
-    #     self.modules
-    #     for param in self.parameters():
-    #         param.requires_grad = True
-
     def eval(self):
         self.prepare_modules_for_eval()
         for module in self.modules:

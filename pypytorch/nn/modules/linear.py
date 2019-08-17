@@ -33,6 +33,18 @@ class Linear(Module):
         if self.bias.requires_grad:
             self.bias.data = np.random.uniform(-stdv, stdv, self.bias.data.shape)
 
+    def train(self):
+        self.prepare_modules_for_train()
+        self.weight.requires_grad = True
+        if hasattr(self, 'bias') and getattr(self, 'bias') is not None:
+            getattr(self, 'bias').requires_grad = True
+        
+    def eval(self):
+        self.prepare_modules_for_eval()
+        self.weight.requires_grad = False
+        if hasattr(self, 'bias') and getattr(self, 'bias') is not None:
+            getattr(self, 'bias').requires_grad = False
+
     def forward(self, x):
         return F.linear(x, self.weight, self.bias)
 

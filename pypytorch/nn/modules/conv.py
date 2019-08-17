@@ -36,6 +36,18 @@ class Conv2d(Module):
             self.bias.zeros_()
         self.reset_parameters()
     
+    def train(self):
+        self.prepare_modules_for_train()
+        self.weight.requires_grad = True
+        if hasattr(self, 'bias') and getattr(self, 'bias') is not None:
+            getattr(self, 'bias').requires_grad = True
+    
+    def eval(self):
+        self.prepare_modules_for_train()
+        self.weight.requires_grad = False
+        if hasattr(self, 'bias') and getattr(self, 'bias') is not None:
+            getattr(self, 'bias').requires_grad = False
+
     def reset_parameters(self):
         stdv = 1. / math.sqrt(self.in_ch * self.kernel_size[0] * self.kernel_size[1])
         self.weight.data = np.random.uniform(-stdv, stdv, self.weight.data.shape)

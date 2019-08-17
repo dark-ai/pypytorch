@@ -21,13 +21,20 @@ class DropOut(Module):
         """
         super(DropOut, self).__init__()
         self.prob = prob
-        self.train = train
+        # training attribute is in super class(Moudle)
+        self.training = train
 
     def forward(self, x):
-        return F.dropout(x, prob=self.prob, train=self.train)
+        return F.dropout(x, prob=self.prob, train=self.training)
+
+    def train(self):
+        self.prepare_modules_for_train()
+    
+    def eval(self):
+        self.prepare_modules_for_eval()
 
     def __str__(self):
-        return 'DropOut(prob=%s, train=%s)' % (self.prob, self.train)
+        return 'DropOut(prob=%s, train=%s)' % (self.prob, self.training)
 
     def __repr__(self):
         return str(self)

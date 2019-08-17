@@ -24,6 +24,12 @@ class ReLU(Module):
     def forward(self, x):
         return F.relu(x)
 
+    def eval(self):
+        self.prepare_modules_for_eval()
+    
+    def train(self):
+        self.prepare_modules_for_train()
+
     def __str__(self):
         return 'ReLU()'
 
@@ -40,6 +46,12 @@ class Sigmoid(Module):
     def forward(self, x):
         return F.sigmoid(x)
     
+    def eval(self):
+        self.prepare_modules_for_eval()
+    
+    def train(self):
+        self.prepare_modules_for_train()
+
     def __str__(self):
         return 'Sigmoid()'
     
@@ -55,6 +67,12 @@ class Tanh(Module):
     
     def forward(self, x):
         return F.tanh(x)
+
+    def eval(self):
+        self.prepare_modules_for_eval()
+    
+    def train(self):
+        self.prepare_modules_for_train()
 
     def __str__(self):
         return 'Tanh()'

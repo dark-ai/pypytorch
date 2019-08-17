@@ -42,17 +42,38 @@ class Module(object):
         self._modules
         return self._named_modules
 
-    def eval(self):
-        self.training = False
-        self.modules
-        for param in self.parameters():
-            param.requires_grad = False
-    
-    def train(self):
+    def prepare_modules_for_train(self):
         self.training = True
+        self.prepare_modules()
+    
+    def prepare_modules_for_eval(self):
+        self.training = False
+        self.prepare_modules()
+
+    def prepare_modules(self):
         self.modules
-        for param in self.parameters():
-            param.requires_grad = True
+
+    # def eval(self):
+    #     self.training = False
+    #     self.modules
+    #     for param in self.parameters():
+    #         param.requires_grad = False
+    
+    # def train(self):
+    #     self.training = True
+    #     self.modules
+    #     for param in self.parameters():
+    #         param.requires_grad = True
+
+    def eval(self):
+        self.prepare_modules_for_eval()
+        for module in self.modules:
+            module.eval()
+
+    def train(self):
+        self.prepare_modules_for_train()
+        for module in self.modules:
+            module.train()
 
     def forward(self, *args, **kwargs):
         raise NotImplementedError
@@ -143,7 +164,7 @@ class Sequential(Module):
         assert len(modules) != 0, "At least need one module"
         for i, mod in enumerate(modules):
             setattr(self, str(i), mod)
-    
+
     def forward(self, x):
         out = x
         for mod in self.modules:

@@ -16,6 +16,8 @@ from mnist.dataset import Mnist
 opts = Config()
 model = getattr(models, opts.model)(1, 10)
 print(model)
+model.train()
+
 
 def train(**kwargs):
     opts.parse_args(**kwargs)

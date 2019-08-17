@@ -21,6 +21,12 @@ class MaxPool2d(Module):
     def forward(self, x):
         return F.max_pool2d(x, self.kernel_size, stride=self.stride, padding=self.padding)
 
+    def train(self):
+        self.prepare_modules_for_train()
+    
+    def eval(self):
+        self.prepare_modules_for_eval()
+
     def __str__(self):
         return 'MaxPool2d(kernel_size=%s, stride=%s, padding=%s)'\
             % (self.kernel_size, self.stride, self.padding)
@@ -40,6 +46,12 @@ class AvgPool2d(Module):
         
     def forward(self, x):
         return F.avg_pool2d(x, self.kernel_size, stride=self.stride, padding=self.padding)
+
+    def train(self):
+        self.prepare_modules_for_train()
+    
+    def eval(self):
+        self.prepare_modules_for_eval()
 
     def __str__(self):
         return 'AvgPool2d(kernel_size=%s, stride=%s, padding=%s)'\

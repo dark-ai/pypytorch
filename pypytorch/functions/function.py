@@ -63,3 +63,4 @@ class Function(object):
             if dim != self.inputs[oprand].shape[i]:
                 grad = grad.sum(axis=i, keepdims=True)
         return grad
+

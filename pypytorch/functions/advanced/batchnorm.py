@@ -3,7 +3,7 @@
 
 import numpy as np
 import pypytorch as ppt
-from pypytorch.functions import Function
+from pypytorch.functions.function import Function
 
 
 class BatchNorm(Function):

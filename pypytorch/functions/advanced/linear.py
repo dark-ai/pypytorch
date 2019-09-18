@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from pypytorch.functions import Function
+from pypytorch.functions.function import Function
 
 
 class Linear(Function):

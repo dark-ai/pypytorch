@@ -6,7 +6,7 @@ import warnings
 class Config(object):
 
     data_dir = '../../data/mnist/'
-    model = 'LeNetV4'
+    model = 'LeNetV3'
     model_path = None
     print_seq = 20
     lr = 0.1

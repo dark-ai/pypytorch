@@ -5,7 +5,7 @@ import math
 import numpy as np
 from pypytorch.nn.modules.module import Module
 import pypytorch as t
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class BatchNorm(Module):
@@ -21,7 +21,7 @@ class BatchNorm(Module):
         self.momentum = momentum
     
     def forward(self, x):
-        return F.batch_norm(x, self.gamma, self.beta, momentum=self.momentum)
+        return functions.batch_norm(x, self.gamma, self.beta, momentum=self.momentum)
 
     def __str__(self):
         return 'Batch(gamma=%s, beta=%s, momentum=%s)' \

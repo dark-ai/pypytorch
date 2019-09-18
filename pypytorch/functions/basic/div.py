@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
-
-from pypytorch.functions import Function
+from pypytorch.functions.function import Function
 
 
-class Pow(Function):
+class Div(Function):
 
 
     def forward(self, a, b):
-        return np.power(a, b)
+        return a / b
     
     def backward_0(self, grad):
         a, b = self.inputs
-        return grad * b * (np.power(a, b - 1))
-    
+        return grad / b
+
     def backward_1(self, grad):
         """
         Parameters
@@ -22,4 +20,4 @@ class Pow(Function):
         grad : ndarray
         """
         a, b = self.inputs
-        return grad * np.power(a, b) * np.log(a)
+        return -grad * a / b / b

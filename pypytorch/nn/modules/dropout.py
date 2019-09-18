@@ -4,7 +4,7 @@ import math
 import numpy as np
 from pypytorch.nn.modules.module import Module
 import pypytorch as t
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class DropOut(Module):
@@ -25,7 +25,7 @@ class DropOut(Module):
         self.training = train
 
     def forward(self, x):
-        return F.dropout(x, prob=self.prob, train=self.training)
+        return functions.dropout(x, prob=self.prob, train=self.training)
 
     def train(self):
         self.prepare_modules_for_train()

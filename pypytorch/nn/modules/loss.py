@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from pypytorch.nn.modules import Module
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class MSELoss(Module):
 
     def forward(self, predicted, labels):
-        return F.mse_loss(predicted, labels)
+        return functions.mse_loss(predicted, labels)
     
     def eval(self):
         self.prepare_modules_for_eval()
@@ -19,7 +19,7 @@ class MSELoss(Module):
 class CrossEntropyLoss(Module):
 
     def forward(self, predicted, labels):
-        return F.cross_entropy_loss(predicted, labels)
+        return functions.cross_entropy_loss(predicted, labels)
     
     def eval(self):
         self.prepare_modules_for_eval()
@@ -31,7 +31,7 @@ class CrossEntropyLoss(Module):
 class NLLLoss(Module):
     
     def forward(self, predicted, labels):
-        return F.nll_loss(predicted, labels)
+        return functions.nll_loss(predicted, labels)
 
     def eval(self):
         self.prepare_modules_for_eval()

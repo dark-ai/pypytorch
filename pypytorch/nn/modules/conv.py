@@ -6,7 +6,7 @@ import numpy as np
 from pypytorch.nn.modules.module import Module
 import pypytorch as t
 from pypytorch import utils
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class Conv2d(Module):
@@ -64,7 +64,7 @@ class Conv2d(Module):
                 up_down_padding = 0
                 left_right_padding = 0
             self.padding = (up_down_padding, left_right_padding)
-        return F.conv2d(x, self.weight, self.bias, stride=self.stride, padding=self.padding)
+        return functions.conv2d(x, self.weight, self.bias, stride=self.stride, padding=self.padding)
 
     def __str__(self):
         return 'Conv2d(in_ch=%s, out_ch=%s, kernel_size=%s, stride=%s, padding=%s)'\

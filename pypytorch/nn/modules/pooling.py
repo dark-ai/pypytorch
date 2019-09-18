@@ -6,7 +6,7 @@ import numpy as np
 from pypytorch.nn.modules.module import Module
 import pypytorch as t
 from pypytorch import utils
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class MaxPool2d(Module):
@@ -19,7 +19,7 @@ class MaxPool2d(Module):
         self.padding = padding
         
     def forward(self, x):
-        return F.max_pool2d(x, self.kernel_size, stride=self.stride, padding=self.padding)
+        return functions.max_pool2d(x, self.kernel_size, stride=self.stride, padding=self.padding)
 
     def train(self):
         self.prepare_modules_for_train()
@@ -45,7 +45,7 @@ class AvgPool2d(Module):
         self.padding = padding
         
     def forward(self, x):
-        return F.avg_pool2d(x, self.kernel_size, stride=self.stride, padding=self.padding)
+        return functions.avg_pool2d(x, self.kernel_size, stride=self.stride, padding=self.padding)
 
     def train(self):
         self.prepare_modules_for_train()

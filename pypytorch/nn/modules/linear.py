@@ -4,7 +4,7 @@ import math
 import numpy as np
 from pypytorch.nn.modules.module import Module
 import pypytorch as t
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class Linear(Module):
@@ -46,7 +46,7 @@ class Linear(Module):
             getattr(self, 'bias').requires_grad = False
 
     def forward(self, x):
-        return F.linear(x, self.weight, self.bias)
+        return functions.linear(x, self.weight, self.bias)
 
     def __str__(self):
         return 'Linear(in_features=%s, out_features=%s)' % (self.in_features, self.out_features)

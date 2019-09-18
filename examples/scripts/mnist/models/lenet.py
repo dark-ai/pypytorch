@@ -15,10 +15,10 @@ class LeNetV1(t.nn.Module):
         self.fc1 = t.nn.Linear(288, out_ch)
     
     def forward(self, x):
-        out = self.pool1(t.F.relu(self.conv1(x)))
-        out = self.pool2(t.F.relu(self.conv2(out)))
+        out = self.pool1(t.functions.relu(self.conv1(x)))
+        out = self.pool2(t.functions.relu(self.conv2(out)))
         out = out.view((out.shape[0], -1))
-        out = t.F.relu(self.fc1(out))
+        out = t.functions.relu(self.fc1(out))
         return out
 
 
@@ -43,7 +43,7 @@ class LeNetV2(t.nn.Module):
         out = self.conv1(x)
         out = self.conv2(out)
         out = out.view((out.shape[0], -1))
-        out = t.F.relu(self.fc1(out))
+        out = t.functions.relu(self.fc1(out))
         return out
 
 class LeNetV3(t.nn.Module):
@@ -67,7 +67,7 @@ class LeNetV3(t.nn.Module):
         out = self.conv1(x)
         out = self.conv2(out)
         out = out.view((out.shape[0], -1))
-        out = t.F.tanh(self.fc1(out))
+        out = t.functions.tanh(self.fc1(out))
         return out
 
 
@@ -96,5 +96,5 @@ class LeNetV4(t.nn.Module):
         out = self.conv1(x)
         out = self.conv2(out)
         out = out.view((out.shape[0], -1))
-        out = t.F.relu(self.fc1(out))
+        out = t.functions.relu(self.fc1(out))
         return out

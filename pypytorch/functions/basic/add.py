@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from pypytorch.functions import Function
+from pypytorch.functions.function import Function
 
 
 class Add(Function):

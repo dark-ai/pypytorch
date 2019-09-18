@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .module import (Module, Sequential)
 from .linear import Linear
 from .conv import Conv2d

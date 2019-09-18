@@ -12,9 +12,9 @@ class Mnist(t.data.Dataset):
     def __init__(self, root):
         self.root = root
         self.imgs = os.listdir(root)
-        self.transforms = t.T.Compose(
-            t.T.ToTensor(),
-            t.T.Norm(mean=[0.3], std=[0.5])
+        self.transforms = t.transform.Compose(
+            t.transform.ToTensor(),
+            t.transform.Norm(mean=[0.3], std=[0.5])
         )
     
     def __getitem__(self, idx):

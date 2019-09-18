@@ -4,7 +4,7 @@ import math
 import numpy as np
 from pypytorch.nn.modules.module import Module
 import pypytorch as t
-from pypytorch.nn import functional as F
+from pypytorch import functions
 
 
 class ReLU(Module):
@@ -22,7 +22,7 @@ class ReLU(Module):
         super(ReLU, self).__init__()
 
     def forward(self, x):
-        return F.relu(x)
+        return functions.relu(x)
 
     def eval(self):
         self.prepare_modules_for_eval()
@@ -44,7 +44,7 @@ class Sigmoid(Module):
         super(Sigmoid, self).__init__()
     
     def forward(self, x):
-        return F.sigmoid(x)
+        return functions.sigmoid(x)
     
     def eval(self):
         self.prepare_modules_for_eval()
@@ -66,7 +66,7 @@ class Tanh(Module):
         super(Tanh, self).__init__()
     
     def forward(self, x):
-        return F.tanh(x)
+        return functions.tanh(x)
 
     def eval(self):
         self.prepare_modules_for_eval()

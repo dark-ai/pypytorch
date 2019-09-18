@@ -11,10 +11,9 @@ from pypytorch import debug
 from pypytorch import nn
 from pypytorch import data
 from pypytorch.data import dataset
-from pypytorch.data import transform as T
+from pypytorch.data import transform
 from pypytorch import optim
 from pypytorch import functions
-from pypytorch.nn import functional as F
 from pypytorch import utils
 
 # third party modules

@@ -9,10 +9,9 @@ import pypytorch as t
 class ModuleTest(TestCase):
 
 
-    @unittest.skip
+    # @unittest.skip
     def test_sequential(self):
         class MyModule(t.nn.Module):
-
 
             def __init__(self):
                 super(MyModule, self).__init__()
@@ -26,3 +25,5 @@ class ModuleTest(TestCase):
         
         model = MyModule()
         print(model)
+    
+    

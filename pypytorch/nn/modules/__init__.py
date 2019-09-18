@@ -5,3 +5,4 @@ from .pooling import MaxPool2d, AvgPool2d
 from .loss import (MSELoss, NLLLoss, CrossEntropyLoss)
 from .activation import (ReLU, Sigmoid, Tanh)
 from .dropout import DropOut
+from .batchnorm import BatchNorm

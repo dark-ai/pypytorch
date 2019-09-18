@@ -56,3 +56,7 @@ def nll_loss(predicted, labels):
 def cross_entropy_loss(predicted, labels):
     output = softmax(predicted, dim=1)
     return nll_loss(output.log(), labels)
+
+def batch_norm(x, gamma, beta, momentum=0.999):
+    batch_norm = BatchNorm(momentum=momentum)
+    return batch_norm(x, gamma, beta)

@@ -19,11 +19,11 @@
 
 | Module    | Description                                                  |
 | --------- | ------------------------------------------------------------ |
-| pypytorch | The entry of PyPyTorch framework, once you import pypytorch, you can work everything with PyPyTorch |
-| data      | Privides dataset, dataloader and transforms                  |
-| functions | A operator library for Tensor object in PyPyTorch            |
-| nn        | A high level neural network library in PyPyTorch which built on functions module, you can build a neural network model very fast with the help of nn |
-| optim     | There are some optimizers, including SGD, Adam(will add in the coming future) and so on |
+| pypytorch | The entry of PyPyTorch framework, once you import pypytorch, you can work everything with PyPyTorch. |
+| data      | Privides dataset, dataloader and transforms.                 |
+| functions | A operator library for Tensor object in PyPyTorch.           |
+| nn        | A high level neural network library in PyPyTorch which built on functions module, you can build a neural network model very fast with the help of nn. |
+| optim     | There are some optimizers, including SGD, Adam and so on.    |
 
 ![pypytorch-run-mnist](./assets/gifs/pypytorch-run-mnist.gif)
 
@@ -42,13 +42,16 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 3. `pip3 install -r requirements.txt`
 4. `make install && make clean`
 
+### Docker
+
+
 
 
 ## TODO
 
-+ [ ] docs
-+ [ ] test
++ [x] SGD Optimizer
 + [x] Adam Optimizer
 + [x] Sequential
 + [x] ReLU
++ [ ] BatchNorm(Testing) 
 

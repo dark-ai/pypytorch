@@ -6,11 +6,11 @@ import pypytorch as ppt
 from pypytorch.functions.function import Function
 
 
-class BatchNorm(Function):
+class BatchNorm2d(Function):
 
 
-    def __init__(self, momentum=0.999, epsilon=1e-3, train=True):
-        super(BatchNorm, self).__init__()
+    def __init__(self, momentum=0.1, epsilon=1e-5, train=True):
+        super(BatchNorm2d, self).__init__()
         self.mean = 0.0
         self.var = 0.0
         self.running_mean = 0.0

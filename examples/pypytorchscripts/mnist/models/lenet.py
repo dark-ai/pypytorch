@@ -84,6 +84,7 @@ class LeNetV4(t.nn.Module):
         self.conv2 = t.nn.Sequential(
             t.nn.Conv2d(4, 8, 5, 2, padding='SAME'),
             t.nn.ReLU(),
+            t.nn.BatchNorm2d(),
             t.nn.MaxPool2d(2, 2)
         )
         self.fc1 = t.nn.Sequential(

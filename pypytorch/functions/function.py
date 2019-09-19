@@ -21,6 +21,11 @@ class Function(object):
 
     
     def __init__(self):
+        """
+        Notes
+        If need extra arguments in __init__() method when inhrent Function, note that these arguments are unlearnable,
+        as for the learnable arguments, please go to Function.forward(self, *args)
+        """
         self.inputs = []
         self.raw_inputs = []
 

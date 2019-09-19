@@ -50,6 +50,12 @@ class Function(object):
 
     
     def forward(self, *args):
+        """
+        Parameters
+        ----------
+        args : tuple (built-in Python class or numpy.ndarray)
+            The elements in tuple are learnable, like input, weight, bias in conv operator
+        """
         raise NotImplementedError
     
     def broadcast(self, grad, oprand):

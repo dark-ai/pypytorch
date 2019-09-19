@@ -26,7 +26,7 @@ class BatchNorm2d(Function):
             self.var = x.var(axis=0)
             self.running_mean = self.momentum * self.mean + (1 - self.momentum) * self.mean
             self.running_var = self.momentum * self.var + (1 - self.momentum) * self.var
-            self.x_hat = (x - self.mean) / np.sqrt(self.var ** 2 + self.epsilon)
+            self.x_hat = (x - self.mean) / np.sqrt(self.var + self.epsilon)
         else:
             self.x_hat = (x - self.running_mean) / np.sqrt(self.var ** 2 + self.epsilon)
         y = self.x_hat * gamma + beta

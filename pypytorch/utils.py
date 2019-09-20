@@ -112,9 +112,6 @@ def col2im(col, im, kernel_size, stride, padding):
 
 
 def fetch_args(args, num):
-    if len(args) == num:
-        x, weight, bias = args
-    else:
-        x, weight = args
-        bias = None
-    return x, weight, bias
+    values = [None] * num
+    values[0:len(args)] = args
+    return values

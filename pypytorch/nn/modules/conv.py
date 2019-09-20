@@ -67,7 +67,7 @@ class Conv2d(Module):
 
     def __str__(self):
         return 'Conv2d(in_ch=%s, out_ch=%s, kernel_size=%s, stride=%s, padding=%s, bias=%s)'\
-            % (self.in_ch, self.out_ch, self.kernel_size, self.stride, self.padding, True if self.bias else False)
+            % (self.in_ch, self.out_ch, self.kernel_size, self.stride, self.padding, True if self.bias is not None else False)
 
     def __repr__(self):
         return str(self)

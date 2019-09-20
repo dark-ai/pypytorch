@@ -15,6 +15,7 @@ from pypytorch.data import transform
 from pypytorch import optim
 from pypytorch import functions
 from pypytorch import utils
+from pypytorch.tensor import tensor
 
 # third party modules
 import numpy as np

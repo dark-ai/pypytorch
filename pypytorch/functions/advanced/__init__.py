@@ -8,3 +8,4 @@ from .activation import (ReLU, Sigmoid, Tanh)
 from .loss import (MSELoss, Softmax, NLLLoss)
 from .dropout import DropOut
 from .batchnorm import BatchNorm2d
+from .deconv import DeConv2d

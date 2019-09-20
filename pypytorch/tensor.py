@@ -9,6 +9,10 @@ from pypytorch.functions import *
 from pypytorch import utils
 
 
+def tensor(data, dtype=tt.float32, mu=0.0, sigma=1.0):
+    return Tensor(data, dtype=dtype, mu=mu, sigma=sigma)
+
+
 class Tensor(object):
 
 

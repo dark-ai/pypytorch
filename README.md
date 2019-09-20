@@ -53,7 +53,7 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 + [x] Adam Optimizer
 + [x] Sequential
 + [x] ReLU
-+ [x] BatchNorm(Testing) 
-+ [ ] DeConv2d
++ [x] BatchNorm 
++ [ ] DeConv2d(Waiting to test)
 + [ ] Upsample
 

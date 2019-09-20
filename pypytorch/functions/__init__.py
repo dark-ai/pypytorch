@@ -15,8 +15,13 @@ def dropout(inputs, prob=0.5, train=True):
 
 def conv2d(inputs, weight, bias, stride=(1, 1), padding=(0, 0)):
     stride, padding = utils.pair_tuple(stride, padding)
-    conv = Conv2d(stride, padding)
-    return conv(inputs, weight, bias)
+    conv2d = Conv2d(stride, padding)
+    return conv2d(inputs, weight, bias)
+
+def deconv2d(inputs, weight, bias, stride=(1, 1), padding=(0, 0)):
+    stride, padding, utils.pair_tuple(stride, padding)
+    deconv2d = DeConv2d(stride, padding)
+    return deconv2d(inputs, weight, bias)
 
 def max_pool2d(inputs, kernel_size, stride=(1, 1), padding=(0, 0)):
     kernel_size, stride, padding = utils.pair_tuple(kernel_size, stride, padding)

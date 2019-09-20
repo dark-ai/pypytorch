@@ -13,13 +13,14 @@ class LeNetV1(nn.Module):
         super(LeNetV1, self).__init__()
         self.conv1 = nn.Sequential(
             nn.Conv2d(in_ch, 4, 5, padding=2),
+            nn.BatchNorm2d(4),
             nn.ReLU(),
             nn.MaxPool2d(2, 2)
         )
         self.conv2 = nn.Sequential(
             nn.Conv2d(4, 8, 5, 2, padding=7),
-            nn.ReLU(),
             nn.BatchNorm2d(8),
+            nn.ReLU(),
             nn.MaxPool2d(2, 2)
         )
         self.fc1 = nn.Sequential(

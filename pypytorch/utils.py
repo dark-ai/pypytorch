@@ -109,3 +109,12 @@ def col2im(col, im, kernel_size, stride, padding):
             col_idx += batch
     im = np.transpose(im, (3, 0, 1, 2))
     return _handle_padding(im, padding)
+
+
+def fetch_args(args, num):
+    if len(args) == num:
+        x, weight, bias = args
+    else:
+        x, weight = args
+        bias = None
+    return x, weight, bias

@@ -5,7 +5,17 @@ import pypytorch as t
 
 
 def get_backward_names(o):
-    return [prop for prop in dir(o) if prop.startswith('backward_')]
+    names = []
+    length = len(o.inputs)
+    count = 0
+    for prop in dir(o):
+        if count >= length:
+            return names
+        if prop.startswith('backward_'):
+            names.append(prop)
+            count += 1
+    return names
+
 
 def backward(o, wrap):
 
@@ -30,8 +40,11 @@ class Function(object):
         self.raw_inputs = []
 
     def __call__(self, *args):
-        self.raw_inputs = args
-        for arg in args:
+        self.raw_inputs = list(args)
+        for i, arg in enumerate(args):
+            if arg is None:
+                self.raw_inputs.pop(i)
+        for arg in self.raw_inputs:
             if isinstance(arg, t.Tensor):
                 self.inputs.append(arg.data)
             else:

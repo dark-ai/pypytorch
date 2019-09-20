@@ -17,23 +17,28 @@ class Conv2d(Function):
         self.padding = utils.ensure_tuple_list(padding)
         self._col = None
 
-    def forward(self, x, weight, bias):
+    def forward(self, *args):
+        x, weight, bias = utils.fetch_args(args, 3)
         filter_num, weight_channels, kernel_size = weight.shape[0], weight.shape[1], (weight.shape[2], weight.shape[3])
         batch, channels, height, width = x.shape
-        assert len(bias.shape) == 2, 'bias dims is (filter_num, bias_value)'
-        assert bias.shape[0] == filter_num, 'bias.dims()[0] must be eq filter_num'
+        if bias is not None:
+            assert len(bias.shape) == 2, 'bias dims is (filter_num, bias_value)'
+            assert bias.shape[0] == filter_num, 'bias.dims()[0] must be eq filter_num'
         assert weight_channels == channels, 'weight_channels must eq channels'
 
         col = utils.im2col(x, kernel_size, self.stride, self.padding)
         self._col = col
-        out = weight.reshape(filter_num, -1) @ col + bias
+        if bias is not None:
+            out = weight.reshape(filter_num, -1) @ col + bias
+        else:
+            out = weight.reshape(filter_num, -1) @ col
         out_height = (height - kernel_size[0] + 2 * self.padding[0]) // self.stride[0] + 1
         out_width = (width - kernel_size[1] + 2 * self.padding[1]) // self.stride[1] + 1
         out = out.reshape(filter_num, out_height, out_width, batch)
         return out.transpose(3, 0, 1, 2)
     
     def backward_0(self, grad):
-        x, weight, bias = self.inputs
+        x, weight, bias = utils.fetch_args(self.inputs, 3)
         filter_num, weight_channels, kernel_size = weight.shape[0], weight.shape[1], (weight.shape[2], weight.shape[3])
         batch, channels, height, width = x.shape
         
@@ -44,7 +49,7 @@ class Conv2d(Function):
         return out
     
     def backward_1(self, grad):
-        x, weight, bias = self.inputs
+        x, weight, bias = utils.fetch_args(self.inputs, 3)
         filter_num, weight_channels, kernel_size = weight.shape[0], weight.shape[1], (weight.shape[2], weight.shape[3])
         batch, channels, height, width = x.shape
 

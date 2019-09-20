@@ -32,8 +32,7 @@ class Conv2d(Module):
         self.bias = t.Tensor((out_ch, 1), requires_grad=True)
         
         if not bias:
-            self.bias.requires_grad = False
-            self.bias.zeros_()
+            self.bias = None
         self.reset_parameters()
     
     def train(self):
@@ -51,7 +50,7 @@ class Conv2d(Module):
     def reset_parameters(self):
         stdv = 1. / math.sqrt(self.in_ch * self.kernel_size[0] * self.kernel_size[1])
         self.weight.data = np.random.uniform(-stdv, stdv, self.weight.data.shape)
-        if self.bias.requires_grad:
+        if self.bias:
             self.bias.data = np.random.uniform(-stdv, stdv, self.bias.data.shape)
 
     def forward(self, x):
@@ -67,8 +66,8 @@ class Conv2d(Module):
         return functions.conv2d(x, self.weight, self.bias, stride=self.stride, padding=self.padding)
 
     def __str__(self):
-        return 'Conv2d(in_ch=%s, out_ch=%s, kernel_size=%s, stride=%s, padding=%s)'\
-            % (self.in_ch, self.out_ch, self.kernel_size, self.stride, self.padding)
+        return 'Conv2d(in_ch=%s, out_ch=%s, kernel_size=%s, stride=%s, padding=%s, bias=%s)'\
+            % (self.in_ch, self.out_ch, self.kernel_size, self.stride, self.padding, True if self.bias else False)
 
     def __repr__(self):
         return str(self)

@@ -23,8 +23,9 @@ class Linear(Module):
         self.in_features = in_features
         self.out_features = out_features
         self.weight = t.Tensor((in_features, out_features), requires_grad=True)
-        if bias:
-            self.bias = t.Tensor((1, out_features), requires_grad=True)
+        self.bias = t.Tensor((1, out_features), requires_grad=True)
+        if bias is None:
+            self.bias = None
         self.reset_parameters()
     
     def reset_parameters(self):
@@ -49,7 +50,7 @@ class Linear(Module):
         return functions.linear(x, self.weight, self.bias)
 
     def __str__(self):
-        return 'Linear(in_features=%s, out_features=%s)' % (self.in_features, self.out_features)
+        return 'Linear(in_features=%s, out_features=%s, bias=%s)' % (self.in_features, self.out_features, True if self.bias is not None else False)
 
     def __repr__(self):
         return str(self)

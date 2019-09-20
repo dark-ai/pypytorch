@@ -18,7 +18,7 @@ class LeNetV1(nn.Module):
             nn.MaxPool2d(2, 2)
         )
         self.conv2 = nn.Sequential(
-            nn.Conv2d(4, 8, 5, 2, padding=7),
+            nn.Conv2d(4, 8, 5, 2, padding=7, bias=False),
             nn.BatchNorm2d(8),
             nn.ReLU(),
             nn.MaxPool2d(2, 2)

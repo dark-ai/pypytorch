@@ -7,7 +7,7 @@ class Config(object):
 
     data_dir = '../../data/mnist/'
     model = 'LeNetV4'
-    model_path = None
+    model_path = 'checkpoints/LeNetV4/2019-09-22_14-41-16_1.pth'
     print_seq = 20
     lr = 0.1
     batch_size = 32

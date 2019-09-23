@@ -77,13 +77,13 @@ class LeNetV4(t.nn.Module):
     def __init__(self, in_ch, out_ch):
         super(LeNetV4, self).__init__()
         self.conv1 = t.nn.Sequential(
-            t.nn.Conv2d(in_ch, 4, 5, padding='SAME', bias=False),
+            t.nn.Conv2d(in_ch, 4, 5, padding='SAME'),
             t.nn.BatchNorm2d(),
             t.nn.ReLU(),
             t.nn.MaxPool2d(2, 2)
         )
         self.conv2 = t.nn.Sequential(
-            t.nn.Conv2d(4, 8, 5, 2, padding='SAME', bias=False),
+            t.nn.Conv2d(4, 8, 5, 2, padding='SAME'),
             t.nn.BatchNorm2d(),
             t.nn.ReLU(),
             t.nn.MaxPool2d(2, 2)
@@ -91,7 +91,7 @@ class LeNetV4(t.nn.Module):
         self.fc1 = t.nn.Sequential(
             t.nn.Linear(288, 250),
             t.nn.DropOut(),
-            t.nn.Linear(250, out_ch, bias=False)
+            t.nn.Linear(250, out_ch)
         )
     
     def forward(self, x):

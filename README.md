@@ -50,10 +50,9 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 ## TODO
 
 + [x] SGD Optimizer
-+ [x] Adam Optimizer
++ [x] Adam Optimizer(Adam implemented by me sucks)
 + [x] Sequential
 + [x] ReLU
 + [x] BatchNorm 
 + [ ] DeConv2d(Waiting to test)
 + [ ] Upsample
-

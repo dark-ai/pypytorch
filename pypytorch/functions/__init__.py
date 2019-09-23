@@ -66,3 +66,7 @@ def cross_entropy_loss(predicted, labels):
 def batch_norm2d(x, gamma, beta, momentum=0.1, train=True):
     batch_norm2d = BatchNorm2d(momentum=momentum)
     return batch_norm2d(x, gamma, beta)
+
+def nearest_upsample(x, size):
+    nearest_upsample = NearestUpsample(size)
+    return nearest_upsample(x)

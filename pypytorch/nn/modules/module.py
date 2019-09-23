@@ -121,7 +121,7 @@ class Module(object):
             data = json.load(f)
         data = dict(sorted(data.items(), key=lambda x: x[1]))
         t.save(self, weight_path)
-        print(loss.data.tolist())
+        # print(loss.data.tolist())
         data[current_time + '_' + str(epoch) + '.pth'] = loss.data.tolist()
         with open(checkpoints_path, 'w') as f:
             json.dump(data, f, indent=4)

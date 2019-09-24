@@ -5,7 +5,7 @@ from setuptools import find_packages
 
 setup(
     name='pypytorch',
-    version='0.0.1',
+    version='0.0.1a',
     description='PyPyTorch is a simple deep learning framework',
     author='dark-ai',
     author_email='ac990731@gmail.com',

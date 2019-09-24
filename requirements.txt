@@ -5,3 +5,4 @@ fire
 pillow
 numba
 matplotlib
+opencv-python

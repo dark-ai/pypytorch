@@ -2,7 +2,9 @@
 
 
 import numpy as np
+from PIL import Image
 import pypytorch as t
+import cv2
 
 
 class Transformer(object):
@@ -23,6 +25,25 @@ class Compose(Transformer):
         for trans in self.transformers:
             data = trans(data)
         return data
+
+
+class ToPILImage(Transformer):
+
+
+    def transform(self, tensor):
+        """
+        Parameters
+        ----------
+        tensor : Tensor
+            format is [channel, height, width]
+        """
+        data = tensor.data
+        data = ((data + 1) * 127.5)
+        data = np.transpose(data, (0, 2, 3, 1))
+        data = data.reshape(data.shape[1], data.shape[2], data.shape[3])
+        data = np.array(data, dtype='uint8')
+        img = Image.fromarray(data)
+        return img
 
 
 class ToTensor(Transformer):
@@ -65,3 +86,17 @@ class Norm(Transformer):
         for i in range(len(self.mean)):
             data.data[:, i] = (data.data[:, i] - self.mean[i]) / self.std[i]
         return data
+
+class Resize(Transformer):
+
+
+    def __init__(self, size):
+        if isinstance(size, int):
+            self.size = (size, size)
+        else:
+            self.size = size
+    
+    def transform(self, data):
+        assert isinstance(data, np.ndarray), 'input data should be ndarray'
+        img = Image.fromarray(data.astype('uint8'))
+        return np.array(img.resize(self.size)).astype('uint8')

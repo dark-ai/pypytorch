@@ -10,11 +10,12 @@ import pypytorch as t
 
 from mnist.config import Config
 from mnist import models
-from mnist.dataset import Mnist
+from mnist.dataset import Cifar10
 
 
 opts = Config()
 model = getattr(models, opts.model)(1, 10)
+
 if opts.model_path:
     model = t.load(opts.model_path)
     print('Load weights...')

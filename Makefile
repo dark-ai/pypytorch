@@ -1,7 +1,7 @@
-PYTHON = python3
+PYTHON = python
 TARGET = pypytorch
 VERSION = 0.0.1
-PIP = pip3
+PIP = pip
 
 install: setup.py
 	$(PYTHON) setup.py bdist_wheel &&\

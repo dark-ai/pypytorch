@@ -33,7 +33,8 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 
 ### PyPI
 
-1. `pip3 install pypytorch` I will add pypytorch to PyPI in the coming future
+1. `pip install pypytorch`
+    * As for Windows user, I recommend you to use Miniconda.
 
 ### From Source
 
@@ -43,7 +44,6 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 4. `make install && make clean`
 
 ### Docker
-
 
 
 

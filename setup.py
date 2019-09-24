@@ -12,5 +12,5 @@ setup(
     platforms=['macOS', 'Windows', 'Linux'],
     url='https://www.github.com/dark-ai/pypytorch',
     packages=find_packages(),
-    install_requires=['numpy', 'dill', 'pillow', 'wheel', 'fire', 'numba']
+    install_requires=['numpy', 'dill', 'pillow', 'wheel', 'fire', 'numba', 'opencv-python', 'matplotlib']
 )

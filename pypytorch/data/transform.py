@@ -4,7 +4,6 @@
 import numpy as np
 from PIL import Image
 import pypytorch as t
-import cv2
 
 
 class Transformer(object):

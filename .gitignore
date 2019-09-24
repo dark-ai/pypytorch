@@ -106,6 +106,6 @@ venv.bak/
 
 .DS_Store
 examples/data/
-.vscode/
+.vscode/*
 examples/pypytorchscripts/mnist/checkpoints
 examples/pypytorchscripts/cifar10/checkpoints

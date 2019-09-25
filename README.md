@@ -45,6 +45,8 @@ Download the mnist.zip dataset at link [BaiduNetDisk](https://pan.baidu.com/s/1b
 
 ### Docker
 
+1. `docker pull docker.io/pypytorch`
+2. `docker run -it pypytorch`
 
 
 ## TODO

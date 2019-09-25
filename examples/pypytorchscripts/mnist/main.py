@@ -10,7 +10,7 @@ import pypytorch as t
 
 from mnist.config import Config
 from mnist import models
-from mnist.dataset import Cifar10
+from mnist.dataset import Mnist
 
 
 opts = Config()
